@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ehospital_theme_background"
+    tools:context=".ProfileActivity">
+
+    <!-- Top App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/toolbar_user_icon"
+                android:layout_width="124dp"
+                android:layout_height="46dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/hospital" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="16dp"
+                android:text="Profile"
+                android:textColor="@color/material_dynamic_primary20"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#D4E4EF"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_layout"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D4E4EF"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Personal Information Card -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
+
+                <View
+                    android:id="@+id/avatar_background"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/profile_avatar_background" />
+
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:layout_alignStart="@id/avatar_background"
+                    android:layout_alignTop="@id/avatar_background"
+                    android:layout_alignEnd="@id/avatar_background"
+                    android:layout_alignBottom="@id/avatar_background"
+                    android:layout_margin="4dp"
+                    android:padding="20dp"
+                    android:src="@drawable/ic_profile"
+                    app:tint="#004D40" />
+
+                <View
+                    android:id="@+id/edit_icon_bg"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignEnd="@id/avatar_background"
+                    android:layout_alignBottom="@id/avatar_background"
+                    android:background="@drawable/profile_edit_background" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignStart="@id/edit_icon_bg"
+                    android:layout_alignTop="@id/edit_icon_bg"
+                    android:layout_alignEnd="@id/edit_icon_bg"
+                    android:layout_alignBottom="@id/edit_icon_bg"
+                    android:layout_margin="7dp"
+                    android:src="@drawable/ic_camera"
+                    app:tint="#004D40" />
+
+                <TextView
+                    android:id="@+id/username_text"
+                    android:layout_width="193dp"
+                    android:layout_height="51dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_toEndOf="@id/avatar_background"
+                    android:textColor="@color/material_dynamic_primary20"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    tools:text="Emma Williams" />
+
+            </RelativeLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:contentPadding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="16dp">
+
+                    <!-- DOB Row -->
+                    <RelativeLayout style="@style/ProfileInfoRow">
+
+                        <TextView
+                            style="@style/ProfileInfoLabel"
+                            android:text="DOB"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/dob_value"
+                            style="@style/ProfileInfoValue"
+                            tools:text="Oct 23, 1995" />
+                    </RelativeLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@drawable/list_divider"/>
+
+                    <!-- Height Row -->
+                    <RelativeLayout style="@style/ProfileInfoRow">
+
+                        <TextView
+                            style="@style/ProfileInfoLabel"
+                            android:text="Height"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/height_value"
+                            style="@style/ProfileInfoValue"
+                            tools:text="5' 8&quot;" />
+                    </RelativeLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@drawable/list_divider"/>
+
+                    <!-- Weight Row -->
+                    <RelativeLayout style="@style/ProfileInfoRow">
+
+                        <TextView
+                            style="@style/ProfileInfoLabel"
+                            android:text="Weight"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/weight_value"
+                            style="@style/ProfileInfoValue"
+                            tools:text="140 lbs" />
+                    </RelativeLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@drawable/list_divider"/>
+
+                    <!-- Gender Row -->
+                    <RelativeLayout style="@style/ProfileInfoRow">
+
+                        <TextView
+                            style="@style/ProfileInfoLabel"
+                            android:text="Gender"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/gender_value"
+                            style="@style/ProfileInfoValue"
+                            tools:text="Female" />
+                    </RelativeLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@drawable/list_divider"/>
+
+                    <!-- Blood Group Row -->
+                    <RelativeLayout style="@style/ProfileInfoRow">
+
+                        <TextView
+                            style="@style/ProfileInfoLabel"
+                            android:text="Blood Group"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/blood_group_value"
+                            style="@style/ProfileInfoValue"
+                            tools:text="O+" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- READ ONLY GOALS CARD -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="Current Nutrition Goals"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="8dp">
+                        <TextView android:layout_weight="1" android:text="Calories" android:textColor="@color/black" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/goal_calories_text" android:text="2000 kcal" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0"/>
+
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="8dp">
+                        <TextView android:layout_weight="1" android:text="Protein" android:textColor="@color/black" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/goal_protein_text" android:text="120 g" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0"/>
+
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="8dp">
+                        <TextView android:layout_weight="1" android:text="Carbs" android:textColor="@color/black" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/goal_carbs_text" android:text="250 g" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0"/>
+
+                    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="8dp">
+                        <TextView android:layout_weight="1" android:text="Fat" android:textColor="@color/black" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                        <TextView android:id="@+id/goal_fat_text" android:text="70 g" android:textStyle="bold" android:textColor="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Logout Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/logout_button"
+                style="@style/Widget.App.Button.Rounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/material_dynamic_primary20"
+                android:paddingVertical="14dp"
+                android:text="Log Out"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/ehospital_theme"
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="@android:color/white"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"
+        tools:ignore="VisualLintBottomNav" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

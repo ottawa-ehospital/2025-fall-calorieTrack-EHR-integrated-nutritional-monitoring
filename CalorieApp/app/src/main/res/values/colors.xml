@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="color_card_red">#FFCDD2</color>
+    <color name="color_card_yellow">#FFF9C4</color>
+    <color name="color_card_green">#C8E6C9</color>
+    <color name="color_card_neutral">#E0E0E0</color>
+    <color name="dark_purple_accent">#673AB7</color>
+    <color name="dashboard_dark_accent">#5B398C</color>
+    <color name="progress_green">#28A745</color>
+    <color name="progress_yellow">#FFC107</color>
+    <color name="progress_red">#DC3545</color>
+    <color name="ehospital_theme">#1A4EBA</color>
+    <color name="ehospital_theme_background">#F0F7FC</color>
+</resources>

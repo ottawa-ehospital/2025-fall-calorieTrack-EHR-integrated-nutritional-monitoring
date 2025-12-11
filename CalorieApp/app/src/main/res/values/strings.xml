@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CalorieApp</string>
+    <string name="today_s_summary">Today\'s Summary</string>
+    <string name="todo">TODO</string>
+</resources>

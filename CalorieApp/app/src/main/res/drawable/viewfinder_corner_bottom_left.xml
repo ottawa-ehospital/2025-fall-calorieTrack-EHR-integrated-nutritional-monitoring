@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This creates an "L" shape at the bottom-left -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bottom line -->
+    <item
+        android:width="50dp"
+        android:height="4dp"
+        android:gravity="bottom|start">
+        <shape android:shape="rectangle">
+            <solid android:color="#808080" />
+        </shape>
+    </item>
+    <!-- Left line -->
+    <item
+        android:width="4dp"
+        android:height="50dp"
+        android:gravity="bottom|start">
+        <shape android:shape="rectangle">
+            <solid android:color="#808080" />
+        </shape>
+    </item>
+</layer-list>

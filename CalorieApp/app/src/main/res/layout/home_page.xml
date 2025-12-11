@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F7FA"
+    tools:context=".HomeActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/toolbar_user_icon"
+                android:layout_width="124dp"
+                android:layout_height="46dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/hospital" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="16dp"
+                android:text="Dashboard"
+                android:textColor="#0C457D"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/ehospital_theme_background"
+        android:paddingTop="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Welcome -->
+            <TextView
+                android:id="@+id/welcome_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Hello User!"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- CARD 1: CALORIES -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/tv_calories_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calories Remaining"
+                        android:textSize="16sp"
+                        android:textColor="#666"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_edit_goals"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edit Goals"
+                        android:textColor="#0C457D"
+                        android:padding="0dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_calories_title"/>
+
+                    <!-- Circular Progress -->
+                    <!-- Background Ring -->
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        app:indicatorSize="200dp"
+                        app:trackThickness="15dp"
+                        app:trackColor="#F0F0F0"
+                        app:indicatorColor="#F0F0F0"
+                        android:progress="100"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_calories_title"/>
+
+                    <!-- Actual Progress Ring -->
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/calories_progress_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        app:indicatorSize="200dp"
+                        app:trackThickness="15dp"
+                        app:trackColor="@android:color/transparent"
+                        app:indicatorColor="#0C457D"
+                        app:trackCornerRadius="8dp"
+                        tools:progress="65"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_calories_title"/>
+
+                    <!-- Text Inside Ring -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        app:layout_constraintStart_toStartOf="@id/calories_progress_indicator"
+                        app:layout_constraintEnd_toEndOf="@id/calories_progress_indicator"
+                        app:layout_constraintTop_toTopOf="@id/calories_progress_indicator"
+                        app:layout_constraintBottom_toBottomOf="@id/calories_progress_indicator">
+
+                        <TextView
+                            android:id="@+id/tv_calories_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="1250"
+                            android:textSize="32sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="kcal consumed"
+                            android:textSize="12sp"
+                            android:textColor="#888"/>
+                        <TextView
+                            android:id="@+id/tv_calories_goal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            tools:text="Goal: 2000"
+                            android:textSize="14sp"
+                            android:textColor="#555"/>
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- CARD 2: MACROS (Fixed Visuals) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:weightSum="3"
+                android:layout_marginBottom="16dp">
+
+                <!-- Protein -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp"
+                    app:cardBackgroundColor="@android:color/white">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Protein"
+                            android:textSize="12sp"
+                            android:textColor="#666"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/tv_protein_val"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="45g"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/progress_protein_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:trackThickness="6dp"
+                            app:trackCornerRadius="3dp"
+                            app:trackColor="#E8F5E9"
+                            app:indicatorColor="#4CAF50"
+                            tools:progress="50"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Carbs -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp"
+                    app:cardBackgroundColor="@android:color/white">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Carbs"
+                            android:textSize="12sp"
+                            android:textColor="#666"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/tv_carbs_val"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="120g"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/progress_carbs_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:trackThickness="6dp"
+                            app:trackCornerRadius="3dp"
+                            app:trackColor="#E3F2FD"
+                            app:indicatorColor="#2196F3"
+                            tools:progress="70"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Fat -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp"
+                    app:cardBackgroundColor="@android:color/white">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fat"
+                            android:textSize="12sp"
+                            android:textColor="#666"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/tv_fat_val"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30g"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/progress_fat_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:trackThickness="6dp"
+                            app:trackCornerRadius="3dp"
+                            app:trackColor="#FFF8E1"
+                            app:indicatorColor="#FFC107"
+                            tools:progress="30"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- CARD 3: BMI & Health -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Health Status (BMI)"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
+                        <TextView
+                            android:id="@+id/tv_bmi_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="22.4"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="#0C457D"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_bmi_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Normal Weight"
+                        android:textSize="14sp"
+                        android:textColor="#666"
+                        android:layout_marginTop="4dp"/>
+
+                    <!-- BMI Linear Gauge -->
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progress_bmi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:trackThickness="12dp"
+                        app:trackCornerRadius="6dp"
+                        app:trackColor="#F3E5F5"
+                        app:indicatorColor="#9C27B0"
+                        android:max="40"
+                        tools:progress="22"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
+                        <TextView android:text="15" android:textSize="10sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" android:gravity="start"/>
+                        <TextView android:text="18.5" android:textSize="10sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" android:gravity="center"/>
+                        <TextView android:text="25" android:textSize="10sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" android:gravity="center"/>
+                        <TextView android:text="30" android:textSize="10sp" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" android:gravity="end"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Loading Indicator -->
+            <ProgressBar
+                android:id="@+id/dashboard_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/view_history_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="12dp"
+                android:text="View Full Meal History"
+                android:textColor="@color/design_default_color_on_primary"
+                android:textColorLink="@color/design_default_color_primary_dark"
+                app:backgroundTint="@color/material_dynamic_primary20"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/ehospital_theme"
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="@android:color/white"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"
+        tools:ignore="VisualLintBottomNav" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/app_title"
+        android:layout_width="223dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="4dp"
+        android:text="PATIENT LOGIN"
+        android:textColor="@color/material_dynamic_primary30"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hospital" />
+
+    <TextView
+        android:id="@+id/login_subtitle"
+        android:layout_width="329dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="8dp"
+        android:text="Secure access to your health &amp; nutrition data"
+        android:textColor="@color/material_dynamic_primary30"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_title" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_username"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+
+        app:boxBackgroundColor="@android:color/transparent"
+        app:boxStrokeWidth="1dp"
+        app:hintEnabled="false"
+        app:hintTextColor="#2196F3"
+        android:textColorHint="#616161"
+        app:boxStrokeColor="#E0E0E0"
+
+        app:boxStrokeWidthFocused="0dp"
+        android:elevation="12dp"
+        android:outlineAmbientShadowColor="#5F6F81"
+        android:outlineSpotShadowColor="#D8DDE4"
+        app:layout_constraintTop_toBottomOf="@id/login_subtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_username"
+            android:hint="Patient Email:"
+            android:textColorHint="@color/hint_color_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:paddingVertical="14dp"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/rounded_input_background"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_password"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Password:"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:boxStrokeWidth="1dp"
+        app:hintEnabled="false"
+        app:hintTextColor="#2196F3"
+        app:boxStrokeColor="#E0E0E0"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_username"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#80ADD8E6"
+        android:elevation="12dp"
+        android:outlineAmbientShadowColor="#5F6F81"
+        android:outlineSpotShadowColor="#D8DDE4">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password:"
+            android:textColorHint="@color/hint_color_selector"
+            android:inputType="textPassword"
+            android:textColor="@android:color/black"
+            android:background="@drawable/rounded_input_background"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_login"
+        style="@style/Widget.App.Button.Rounded"
+        android:layout_width="295dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+
+        android:elevation="4dp"
+        android:paddingVertical="14dp"
+        android:text="LOG IN"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:backgroundTint="@color/ehospital_theme"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_password" />
+
+    <TextView
+        android:id="@+id/text_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Forgot Password?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/material_dynamic_primary30"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_login"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/text_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="64dp"
+        android:gravity="center"
+        android:textColor="#616161"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Status: Idle" />
+
+    <ImageView
+        android:id="@+id/hospital"
+        android:layout_width="319dp"
+        android:layout_height="195dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.107"
+        app:srcCompat="@drawable/hospital" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

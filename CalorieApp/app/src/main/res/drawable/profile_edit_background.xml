@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This is the white circle with a green border for the edit button -->
+<!-- This matches your user_profile.PNG mockup -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@android:color/white" />
+    <stroke android:width="3dp" android:color="#4CAF50" /> <!-- Green border -->
+</shape>
